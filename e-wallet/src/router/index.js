@@ -11,8 +11,13 @@ const routes = [
   // XXX Kopiera över cardData till "main.js" XXX
   // XXX Kolla så att det funkar XXX
   // Fixa cardform
-  // Fyll i, skicka data till main.js, skriv ut i App
-  
+  // -XXX Fyll i input, skriv ut i en paragraf XXX
+  // -XXX Fyll i input, skicka data till main.js, skriv ut i Home XXX
+
+  // Synka med CardItem
+  // - Ska vara tomt från början, men vänta på kortdatan
+  // - Ska hämta kortdata från main.js?
+  // - Ska ha en paragraf som innehåller 
 
   {
     path: "/",

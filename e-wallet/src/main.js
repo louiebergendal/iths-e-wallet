@@ -10,11 +10,30 @@ new Vue({
  
  data: function() {
   return {
-  
-    cardData: [{
-    
-      id: this.inputText,
-      title: this.inputText,
+
+    cardStackArray: [{
+      id: "432984728397",
+      holder: "BOB 1",
+      vendor: "bitcoin",
+      number: "XXXXYYYYZZZZFFFF",
+      validMonth: "12",
+      validDay: "5"
+    },
+    {
+      id: "ANNAN",
+      holder: "BOB 2",
+      vendor: "bitcoin",
+      number: "XXXXYYYYZZZZFFFF",
+      validMonth: "12",
+      validDay: "5"
+    },
+    {
+      id: "ANNAN 2",
+      holder: "BOB 3",
+      vendor: "bitcoin",
+      number: "XXXXYYYYZZZZFFFF",
+      validMonth: "12",
+      validDay: "5"
     }]
   }
  }, 
