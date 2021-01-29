@@ -10,14 +10,15 @@ const routes = [
   // XXX Få till as-enkel kommunikation med "main.js" XXX
   // XXX Kopiera över cardData till "main.js" XXX
   // XXX Kolla så att det funkar XXX
-  // Fixa cardform
+  // Fixa cardform:
   // -XXX Fyll i input, skriv ut i en paragraf XXX
   // -XXX Fyll i input, skicka data till main.js, skriv ut i Home XXX
 
-  // Synka med CardItem
-  // - Ska vara tomt från början, men vänta på kortdatan
-  // - Ska hämta kortdata från main.js?
-  // - Ska ha en paragraf som innehåller 
+  // SelectCard
+  // KillCard
+  // Company
+  //  - responsiv CSS-class som ligger direkt i root-diven på CardItem
+  //  - v-bind?
 
   {
     path: "/",

@@ -4,7 +4,6 @@
 
 <script>
 export default {
- // I den här komponenten borde listan på Home tömmas.
 
 }
 </script>
