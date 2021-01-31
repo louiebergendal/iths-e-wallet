@@ -1,7 +1,7 @@
 <template>
 <div>
     <!-- Skriver ut kort från arrayen i main.js -->
-    <div v-for="card in this.$root.cardStackArray" v-bind:key="card.id">
+    <div class="flex-container" v-for="card in this.$root.cardStackArray" v-bind:key="card.id">
 
         <!-- fyller varje CardItem med data från varje card i cardStackArray (i main.js) -->
         <CardItem v-bind:cardItemData="card" />
@@ -21,7 +21,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

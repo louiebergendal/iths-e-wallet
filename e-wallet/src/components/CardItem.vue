@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <!-- Experimenterar med CSS-klasser -->
+    <div :class="'card -' + cardItemData.vendorClass">
         {{cardItemData.holder}}
         {{cardItemData.number}}
         {{cardItemData.ccv}}
@@ -10,17 +11,31 @@
 <script>
 export default {
 
-    props: ['cardItemData'] // Är beredd att ta emot data som heter "cardItemData".
+    props: [
+        'cardItemData'
+    ] // Är beredd att ta emot data som heter "cardItemData".
 }
 </script>
 
 <style scoped>
-    div {
-        background-color: blueviolet;
+    .card {
         padding: 10px;
         margin: 10px;
         width: 300px;
-        border-radius: 25px;
+        border-radius: 25px; 
+    }
+
+    .card.-evil-corp {
+        background-color: red;
+    }
+    .card.-bitcoin {
+        background-color: yellow;
+    }
+    .card.-ninja-bank {
+        background-color: black;
+    }
+    .card.-block-chain {
+        background-color: purple;
     }
 
 </style>
