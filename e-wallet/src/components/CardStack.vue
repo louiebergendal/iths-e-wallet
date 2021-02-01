@@ -1,9 +1,12 @@
 <template>
 <div>
-    <!-- Skriver ut kort från arrayen i main.js -->
+    <!-- FUNDERING Skriver ut kort med data från ett objekt (Motsvarande ett "card") i main.js ? -->
+
+
+    <!-- Skriver ut kort med data från cardStackArray i main.js -->
     <div class="flex-container" v-for="card in this.$root.cardStackArray" v-bind:key="card.id">
 
-        <!-- fyller varje CardItem med data från varje card i cardStackArray (i main.js) -->
+        <!-- fyller varje CardItem med data från respektive card i cardStackArray (i main.js) -->
         <CardItem v-bind:cardItemData="card" />
 
     </div>
@@ -21,3 +24,14 @@ export default {
     }
 }
 </script>
+
+
+<style scoped>
+    .flex-container {
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
+
+
