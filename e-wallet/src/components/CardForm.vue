@@ -1,6 +1,7 @@
 <template>
 <div>
-    <p>{{cardStackArray}}</p>
+    
+    <CardItem v-bind:cardItemData.sync="card" />
     
     <!-- Inputformulär -->
     <form v-on:submit.prevent="addCard">
@@ -12,18 +13,18 @@
 
         <h4>CARD NUMBER</h4>
         <input type="text" class="number-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-model="inputNumber" required pattern="^[0-9]*$"> 
+        v-on:input="createCardObject()" v-model="inputNumber" required pattern="^[0-9]*$"> 
 
-        <h4>CARD HOLDER</h4>
+        <h4>CARD HOLDER </h4>
         <input type="text" class="holder-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-model="inputHolder" required>
+        v-on:input="createCardObject()" v-model="inputHolder" required>
 
         <span>CCV</span>
         <input type="text" class="ccv-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-model="inputCCV" required pattern="^[0-9]*$">
+        v-on:input="createCardObject()" v-model="inputCCV" required pattern="^[0-9]*$">
 
         <span>VENDOR</span>
-        <select v-model="inputVendor" class="vendor-input" required>
+        <select v-model="inputVendor" class="vendor-input" v-on:change="createCardObject()" required>
             <option disabled value="">Please select one</option>
             <option>Bitcoin</option>
             <option>Ninja Bank</option>
@@ -45,6 +46,8 @@
 </template>
  
 <script>
+import CardItem from '../components/CardItem.vue'
+
 export default {
 
     data: function(){
@@ -53,25 +56,17 @@ export default {
             inputHolder: '',
             inputCCV: '',
             inputVendor: '',
-
-
+            id:'',
+            isSelected: false
         }
     },
     computed: {
         cardStackArray: function(){ // Hämtar cardStackArray från main.js //
             return this.$root.$data.cardStackArray
         },
-
-            // ----- EXPERIMENT ----- //
-            // Jag vill ha ett CardItem i AddCard-vyn.
-            // Kortet skall uppdateras i realtid medan man skriver in värden i inputfält.
-
-            vendorClass: function(){
-                return this.getVendorClass(this.inputVendor)
-            },
-            id: function(){
-                return Date.now().toString() // I princip random.
-            }    
+        vendorClass: function(){
+            return this.getVendorClass(this.inputVendor)
+        },  
     },
     methods: {
         getVendorClass(vendor) { // Ser till att kortet får vendor som CSS-klass
@@ -83,16 +78,35 @@ export default {
             }
         },
         addCard() { // Pushar fixad data från inputfälten till main.js
-            this.$root.cardStackArray.push({
-                id: this.id,
+            
+            // Loopa igenom cardStackArray och se ifall det finns något id som matchar this.card.id
+
+            this.card.id = Date.now().toString()
+            this.$root.cardStackArray.push(this.card)
+
+            this.card = {}
+            this.inputNumber= ''
+            this.inputHolder= ''
+            this.inputCCV= ''
+            this.inputVendor= ''
+            this.isSelected= false
+        },
+        createCardObject() { // Skriver in fixad data från input i displaykortet i realtid
+            this.card = {
                 vendorClass: this.vendorClass,
                 number: this.inputNumber,
                 holder: this.inputHolder,
                 ccv: this.inputCCV,
-                vendor: this.inputVendor
-            })
-            console.log("VENDOR_CLASS: " + this.vendorClass)
+                vendor: this.inputVendor,
+                isSelected: this.isSelected
+            }
         }
+    },
+    components: {
+        CardItem
+    },
+    created: function() {     
+        this.card = {};
     }
 }
 </script>

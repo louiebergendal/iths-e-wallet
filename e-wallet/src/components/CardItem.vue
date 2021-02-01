@@ -1,6 +1,6 @@
 <template>
 
-    <div :class="'card -' + cardItemData.vendorClass" v-on:click="selectCard()">
+    <div :class="'card -' + cardItemData.vendorClass">
         <!-- Skriver ut kortdatan -->
         {{cardItemData.holder}}
         {{cardItemData.number}}
@@ -25,26 +25,10 @@
 
 <script>
 export default {
-
     props: [
 
         'cardItemData'
     ], // Är beredd att ta emot data som heter "cardItemData".
-    methods: {
-
-        selectCard() {
-            // Använd kortets id.
-
-            // Skriv ut kortet i en "display card"-div i Home-vyn.
-            // Splicea bort kortet från cardStackArray?
-
-            // Skriv ut två knappar utanför kortet.
-            // - En "Edit Card" och en "Remove Card"
-            // - Remove Card skall ha en liten varning.
-
-            console.log(this.cardItemData.id)
-        }
-    }
 }
 </script>
 
