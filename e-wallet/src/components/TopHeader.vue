@@ -1,6 +1,6 @@
 <template>
   <div>
-    HEADER
+    I'M SUCH A MEGA AWESOME HEADER
   </div>
 </template>
 

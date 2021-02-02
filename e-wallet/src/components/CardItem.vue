@@ -1,16 +1,19 @@
 <template>
 
     <div :class="'card -' + cardItemData.vendorClass">
+
         <!-- Skriver ut kortdatan -->
         {{cardItemData.holder}}
         {{cardItemData.number}}
         {{cardItemData.ccv}}
         {{cardItemData.vendor}}
 
+        <!-- Bild på chip -->
         <div class="chip-wrapper" >
             <img alt="Chip" src='../assets/chip-dark.svg' />
         </div>
 
+        <!-- Bild på logan -->
         <div class="logo-wrapper">
             <!-- Ser till att korten får rätt logga -->
             <img v-if="cardItemData.vendorClass == 'bitcoin'" alt="Bitcoin logo" src='../assets/vendor-bitcoin.svg' />
@@ -28,7 +31,7 @@ export default {
     props: [
 
         'cardItemData'
-    ], // Är beredd att ta emot data som heter "cardItemData".
+    ]
 }
 </script>
 
@@ -44,17 +47,20 @@ export default {
     }
      
     /* Vendor-egenskaper */
-    .card.-evil-corp {
-        background-color: red;
-    }
     .card.-bitcoin {
         background-color: rgb(255, 238, 0);
     }
     .card.-ninja-bank {
         background-color: black;
+        color: lightgray;
     }
     .card.-block-chain {
         background-color: purple;
+        color: white;
+    }
+    .card.-evil-corp {
+        background-color: red;
+        color: white;
     }
 
     .chip-wrapper {

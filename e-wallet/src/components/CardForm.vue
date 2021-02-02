@@ -1,8 +1,11 @@
 <template>
 <div>
-    
-    <CardItem v-bind:cardItemData.sync="card" />
-    
+
+    <!-- Display-kort -->
+    <div class="flex-container">
+        <CardItem v-bind:cardItemData.sync="card" />
+    </div>
+
     <!-- Inputformulär -->
     <form v-on:submit.prevent="addCard">
         <!-- 
@@ -35,12 +38,6 @@
         <button>SUBMIT!!</button> <!-- Knappen autofunkar eftersom att den ligger i en form-tag -->
 
     </form>
-
-    <!-- Listan där jag vill skriva ut input // DET HÄR SKA BLI ETT CARDITEM // -->
-    <p>Card Number: {{inputNumber}}</p>
-    <p>Card Holder: {{inputHolder}}</p>
-    <p>Card CCV: {{inputCCV}}</p>
-    <p>Card Vendor: {{inputVendor}}</p>
 
 </div>
 </template>
@@ -110,3 +107,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .flex-container {
+        display: flex;
+        justify-content: center;
+    }
+
+</style>

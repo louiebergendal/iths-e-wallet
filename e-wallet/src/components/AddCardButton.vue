@@ -1,5 +1,5 @@
 <template>
-  <button @click="$router.push('AddCard')">Add Card</button>
+  <button @click="$router.push('AddCard')">ADD CARD</button>
 </template>
 
 <script>
