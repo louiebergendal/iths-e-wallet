@@ -1,6 +1,6 @@
 <template>
   <div>
-    I'M SUCH A MEGA AWESOME HEADER
+    <h2>E-WALLET</h2>
   </div>
 </template>
 

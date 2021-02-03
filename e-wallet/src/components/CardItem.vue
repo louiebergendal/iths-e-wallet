@@ -3,10 +3,11 @@
     <div :class="'card -' + cardItemData.vendorClass">
 
         <!-- Skriver ut kortdatan -->
-        {{cardItemData.holder}}
-        {{cardItemData.number}}
-        {{cardItemData.ccv}}
+        HOLDER: {{cardItemData.holder}}
+
+        CCV: {{cardItemData.ccv}}
         {{cardItemData.vendor}}
+        {{this.displayedCardNumber}}
 
         <!-- Bild på chip -->
         <div class="chip-wrapper" >
@@ -31,7 +32,37 @@ export default {
     props: [
 
         'cardItemData'
-    ]
+    ],
+        data: function() {
+        return {
+
+            // För uppsplittning av kortnumret
+
+        }
+    },
+    computed: {
+
+        displayedCardNumber(){ // Det uppsplittade kortnumret
+
+            return this.splitCardNumber(this.cardItemData.number)
+        }
+
+    },
+    methods: {
+
+        splitCardNumber(cardNumber) { // Splittar kortnummret så att det blir fint
+            let cardNumberString= ''
+
+            if (cardNumber == undefined){
+                return "0000 0000 0000 0000"
+            } else {
+                cardNumber = cardNumber.match(/.{1,4}/g) // Splittar upp strängen i en array av småsträngar
+                cardNumberString = cardNumber.join(' ') // Slår ihop dem och sätter mellanrum mellan
+                return cardNumberString;
+            }
+        }
+    }
+
 }
 </script>
 

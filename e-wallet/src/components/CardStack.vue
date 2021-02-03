@@ -1,7 +1,7 @@
 <template>
 <div>
 
-    <!-- Skriver ut kort med data från cardStackArray i main.js -->
+    <!-- Skriver ut kort med data från cardStackArray -->
     <div class="flex-container" v-for="card in this.$root.cardStackArray" v-bind:key="card.id">
 
         <div class="flex-container" v-on:click="selectCard(card)">
@@ -29,15 +29,21 @@ export default {
         selectCard(card) {
             // Man kan bara ha ett kort selected.
             // Om man klickar på kortet igen så släpps selection.
+            // Sätter activeCardIndex 
             
             if(card.isSelected == false) {
                 this.$root.cardStackArray.forEach(element => {
                     element.isSelected = false;
                 });
                 card.isSelected = true;
+
             } else {
                 card.isSelected = false;
             }
+
+            console.log( this.$root.cardStackArray.indexOf(card) )
+            // Säger att Active card ska hämta data från det här indexet istället.
+            this.$root.activeCardIndex = this.$root.cardStackArray.indexOf(card);
         },
         removeCard(card) {
             

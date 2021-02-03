@@ -3,7 +3,7 @@
 
     <!-- Display-kort -->
     <div class="flex-container">
-        <CardItem v-bind:cardItemData.sync="card" />
+        <CardItem v-bind:cardItemData.sync="card" /> <!-- sync är en tvåvägsbindning -->
     </div>
 
     <!-- Inputformulär -->
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         getVendorClass(vendor) { // Ser till att kortet får vendor som CSS-klass
-            switch(vendor) {     // Borde egentligen fixa en algoritm som löser det istället för att hårdkoda.
+            switch(vendor) {
                 case "Bitcoin": return "bitcoin";
                 case "Ninja Bank": return "ninja-bank";
                 case "Blockchain inc": return "block-chain";
@@ -75,13 +75,15 @@ export default {
             }
         },
         addCard() { // Pushar fixad data från inputfälten till main.js
-            
-            // Loopa igenom cardStackArray och se ifall det finns något id som matchar this.card.id
 
+            // Ge ett id och pusha datan till cardStackArray
             this.card.id = Date.now().toString()
             this.$root.cardStackArray.push(this.card)
 
+            // Tömmer display-kortet
             this.card = {}
+
+            // Tömmer input-fälten
             this.inputNumber= ''
             this.inputHolder= ''
             this.inputCCV= ''
