@@ -8,7 +8,7 @@
             <CardItem v-bind:cardItemData="card" /> <!-- fyller varje CardItem med data från respektive card i cardStackArray (i main.js) -->
         </div>
         
-        <button v-if="card.isSelected" v-on:click="removeCard(card)">DISITEGRATE CARD</button>
+
 
     </div>
 
@@ -27,36 +27,10 @@ export default {
     methods: {
 
         selectCard(card) {
-            // Man kan bara ha ett kort selected.
-            // Om man klickar på kortet igen så släpps selection.
-            // Sätter activeCardIndex 
             
-            if(card.isSelected == false) {
-                this.$root.cardStackArray.forEach(element => {
-                    element.isSelected = false;
-                });
-                card.isSelected = true;
-
-            } else {
-                card.isSelected = false;
-            }
-
-            console.log( this.$root.cardStackArray.indexOf(card) )
             // Säger att Active card ska hämta data från det här indexet istället.
             this.$root.activeCardIndex = this.$root.cardStackArray.indexOf(card);
         },
-        removeCard(card) {
-            
-            // "Är-du-säker"-popup
-            let confirmation = confirm("Meh asså, skarru verklien ta bort kortet?")
-            if (confirmation == false) {
-
-                return card.isSelected = false;
-            }
-
-            this.$root.cardStackArray.splice(this.$root.cardStackArray.indexOf(card), 1) 
-            // Hittar och tar bort card från cardStackArray
-        }
     }
 }
 </script>

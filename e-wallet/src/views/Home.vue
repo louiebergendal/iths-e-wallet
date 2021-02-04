@@ -4,9 +4,11 @@
     <TopHeader />
 
     <!-- Visar selectedCard. -->
-    <div class="flex-container">
+    <div v-if="this.$root.activeCardIndex !=null" class="flex-container">
         <h4>ACTIVE CARD</h4>
-        <CardItem v-bind:cardItemData.sync="card" />
+        <CardItem v-bind:cardItemData="card" /> 
+
+        <button v-on:click="removeCard(card)">REMOVE CARD</button>
     </div>
 
     <CardStack />
@@ -35,7 +37,24 @@ export default {
     card: function(){
       return this.$root.cardStackArray[this.$root.activeCardIndex];
     }
+  }, 
+  methods: {
 
+        removeCard(card) {
+
+            console.log(this.$root.activeCardIndex)
+            
+            // "Är-du-säker"-popup
+            let confirmation = confirm("Meh asså, skarru verklien ta bort kortet?")
+            if (confirmation == false) {
+
+                return
+            }
+
+            this.$root.cardStackArray.splice(this.$root.cardStackArray.indexOf(card), 1)
+            this.$root.activeCardIndex = null;
+            // Hittar och tar bort card från cardStackArray
+        }
   }
 };
 </script>

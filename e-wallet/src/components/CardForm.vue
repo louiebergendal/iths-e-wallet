@@ -54,7 +54,6 @@ export default {
             inputCCV: '',
             inputVendor: '',
             id:'',
-            isSelected: false
         }
     },
     computed: {
@@ -88,7 +87,6 @@ export default {
             this.inputHolder= ''
             this.inputCCV= ''
             this.inputVendor= ''
-            this.isSelected= false
         },
         createCardObject() { // Skriver in fixad data från input i displaykortet i realtid
             this.card = {
@@ -97,7 +95,6 @@ export default {
                 holder: this.inputHolder,
                 ccv: this.inputCCV,
                 vendor: this.inputVendor,
-                isSelected: this.isSelected
             }
         }
     },

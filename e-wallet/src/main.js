@@ -10,7 +10,7 @@ new Vue({
  
  data: function() {
   return {
-    activeCardIndex: 0
+    activeCardIndex: null
     , cardStackArray: [
         { 
           vendorClass: 'evil-corp',
@@ -18,7 +18,6 @@ new Vue({
           holder: 'Josef',
           ccv: '111',
           vendor: 'Evil Corp',
-          isSelected: false
         },
         { 
           vendorClass: 'bitcoin',
@@ -26,7 +25,6 @@ new Vue({
           holder: 'Margaret',
           ccv: '222',
           vendor: 'Bitcoin',
-          isSelected: false
         },
         { 
           vendorClass: 'ninja-bank',
@@ -34,7 +32,6 @@ new Vue({
           holder: 'Mao',
           ccv: '333',
           vendor: 'Ninja Bank',
-          isSelected: false
         }
     ]
   }
