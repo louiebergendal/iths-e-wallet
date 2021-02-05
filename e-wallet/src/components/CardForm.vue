@@ -75,7 +75,7 @@ export default {
         },
         addCard() { // Pushar fixad data från inputfälten till main.js
 
-            // Ge ett id och pusha datan till cardStackArray
+            // Ger ett id och pushar datan till cardStackArray
             this.card.id = Date.now().toString()
             this.$root.cardStackArray.push(this.card)
 
@@ -101,13 +101,14 @@ export default {
     components: {
         CardItem
     },
-    created: function() {     
+    created: function() { // Ser till att this.card inte är undefined?
         this.card = {};
     }
 }
 </script>
 
 <style scoped>
+
     .flex-container {
         display: flex;
         justify-content: center;

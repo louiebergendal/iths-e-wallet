@@ -1,7 +1,9 @@
 <template>
   <div class="addCard">
+
     <h1>ADD CARD PAGE</h1>
-        <CardForm />
+    <CardForm />
+    
   </div>
 </template>
 
