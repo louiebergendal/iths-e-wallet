@@ -7,8 +7,14 @@ Vue.use(VueRouter);
 
 const routes = [
   // TODO:
-  //  - 
   //  - CSS
+  //     - Allmän placering
+  //        - AddCard
+  //        - CardForm
+  //     - CardStackGrid
+  //     - CardItem
+
+
 
   {
     path: "/",

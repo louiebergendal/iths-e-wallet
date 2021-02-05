@@ -16,18 +16,18 @@
 
         <h4>CARD NUMBER</h4>
         <input type="text" class="number-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-on:input="createCardObject()" v-model="inputNumber" required pattern="^[0-9]*$"> 
+        v-on:input="createCard()" v-model="inputNumber" required pattern="^[0-9]*$"> 
 
         <h4>CARD HOLDER </h4>
         <input type="text" class="holder-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-on:input="createCardObject()" v-model="inputHolder" required>
+        v-on:input="createCard()" v-model="inputHolder" required>
 
         <span>CCV</span>
         <input type="text" class="ccv-input" placeholder="xxxx xxxx xxxx xxxx"
-        v-on:input="createCardObject()" v-model="inputCCV" required pattern="^[0-9]*$">
+        v-on:input="createCard()" v-model="inputCCV" required pattern="^[0-9]*$">
 
         <span>VENDOR</span>
-        <select v-model="inputVendor" class="vendor-input" v-on:change="createCardObject()" required>
+        <select v-model="inputVendor" class="vendor-input" v-on:change="createCard()" required>
             <option disabled value="">Please select one</option>
             <option>Bitcoin</option>
             <option>Ninja Bank</option>
@@ -88,7 +88,7 @@ export default {
             this.inputCCV= ''
             this.inputVendor= ''
         },
-        createCardObject() { // Skriver in fixad data från input i displaykortet i realtid
+        createCard() { // Skriver in fixad data från input i displaykortet i realtid
             this.card = {
                 vendorClass: this.vendorClass,
                 number: this.inputNumber,

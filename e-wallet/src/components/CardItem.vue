@@ -33,27 +33,19 @@ export default {
 
         'cardItemData'
     ],
-        data: function() {
-        return {
-
-            // För uppsplittning av kortnumret
-
-        }
-    },
     computed: {
 
         displayedCardNumber(){ // Det uppsplittade kortnumret
 
             return this.splitCardNumber(this.cardItemData.number)
         }
-
     },
     methods: {
 
         splitCardNumber(cardNumber) { // Splittar kortnummret så att det blir fint
             let cardNumberString= ''
 
-            if (cardNumber == undefined){
+            if (cardNumber == undefined){ // Deafault-empty-nummret
                 return "0000 0000 0000 0000"
             } else {
                 cardNumber = cardNumber.match(/.{1,4}/g) // Splittar upp strängen i en array av småsträngar

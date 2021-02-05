@@ -7,8 +7,6 @@
         <div class="flex-container" v-on:click="selectCard(card)">
             <CardItem v-bind:cardItemData="card" /> <!-- fyller varje CardItem med data från respektive card i cardStackArray (i main.js) -->
         </div>
-        
-
 
     </div>
 
